@@ -6,6 +6,8 @@ from flask_jwt_extended import JWTManager
 
 from ma import ma
 from resources.user import UserRegister, User, UserLogin, UserLogout, TokenRefresh
+from resources.item import Item, ItemList
+from resources.store import Store, StoreList
 from blacklist import BLACKLIST
 
 app = Flask(__name__)
@@ -33,6 +35,10 @@ def check_if_token_in_blacklist(decrypted_token):
     return decrypted_token["jti"] in BLACKLIST
 
 
+api.add_resource(Item, "/item/<string:name>")
+api.add_resource(ItemList, "/items")
+api.add_resource(Store, "/store/<string:name>")
+api.add_resource(StoreList, "/stores")
 api.add_resource(UserRegister, "/register")
 api.add_resource(User, "/user/<int:user_id>")
 api.add_resource(UserLogin, "/login")
