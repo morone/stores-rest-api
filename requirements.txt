@@ -4,3 +4,5 @@ Flask-JWT-Extended
 Flask-SQLAlchemy
 uwsgi
 psycopg2
+marshmallow
+marshmallow-sqlalchemy
